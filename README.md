@@ -37,10 +37,4 @@ Sugiro que você faça seu cadastro em https://www.mailgun.com/ para conseguir r
 
 OBS: Foi usado o RabbitMQ Cloud para realizar o desenvolvimento desse projeto
 
-## Endpoints
-
-v.0.0.1  
-* GET - /api/users/{user_id} - Retorna um usuário dado seu ID
-* POST - /api/users - Cadastra um novo usuário
-
 
