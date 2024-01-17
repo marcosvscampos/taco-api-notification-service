@@ -12,6 +12,7 @@ class ApiKeyMailContent(MailContent):
         return 'Bem-Vindo! Receba sua chave de acesso'
 
     def get_text(self, content):
+        first_name = content['username'].split()[0]
         user_key = content['key']
-        return f'Olá! Aqui está a sua chave de acesso para começar a usar a TACO API: {user_key}'    
+        return f'Olá, {first_name}! Aqui está a sua chave de acesso para começar a usar a TACO API: {user_key}'    
 
