@@ -6,9 +6,10 @@ import json
 def notification_msg_callback(ch, method, properties, body):
         try:
                 json_body = json.loads(body)
+                print(f"[amqp_service#notification_msg_callback] >>> Message received from queue -> {json_body}")
                 mail_service:MailService = mail_strategy.get_instance(json_body['type'])
-                mail_service.send(json_body["content"])
-                print(f"[amqp_service#notification_msg_callback] >>> Email successful sent to {json_body['content']['email']}!")
+                mail_service.send(json_body["to"], json_body["content"])
+                print(f"[amqp_service#notification_msg_callback] >>> Email successful sent to {json_body['to']}!")
                 ch.basic_ack(delivery_tag=method.delivery_tag)
         
         except MailIntegrationException as mie:
